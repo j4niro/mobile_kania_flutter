@@ -67,7 +67,7 @@ class _LoginState extends State<Login> {
                     height: 50,
                     decoration: BoxDecoration(
                       color: Color(0XFFff7900),
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(7),
                     ),
                     child: Center(
                       child: Text('Se connecter', style: TextStyle(color: Colors.white, fontSize: 20),),

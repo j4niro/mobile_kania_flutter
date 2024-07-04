@@ -1,4 +1,6 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_kania_flutter/components/Graphes/linechart.dart';
 import 'package:mobile_kania_flutter/screens/Home_page/home.dart';
 import 'package:mobile_kania_flutter/screens/Login/login.dart';
 import 'package:mobile_kania_flutter/screens/accueil.dart';
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Login(),
+      home:Home(),
     );
   }
 }
