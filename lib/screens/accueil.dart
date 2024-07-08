@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Accueil extends StatefulWidget {
   const Accueil({super.key});
@@ -12,7 +13,7 @@ class _AccueilState extends State<Accueil> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
-      Navigator.pushReplacementNamed(context, '/login');
+      context.go('/login');
     });
   }
 
