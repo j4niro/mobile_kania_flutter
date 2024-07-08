@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mobile_kania_flutter/screens/Home_page/home.dart';
-import 'package:mobile_kania_flutter/screens/Login/login.dart';
-import 'package:mobile_kania_flutter/screens/accueil.dart';
 import 'package:mobile_kania_flutter/screens/mesRapports.dart';
 
 
