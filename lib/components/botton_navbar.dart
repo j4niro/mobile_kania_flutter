@@ -1,4 +1,7 @@
+
 import 'package:flutter/material.dart';
+import 'package:mobile_kania_flutter/screens/Home_page/home.dart';
+import 'package:mobile_kania_flutter/screens/accueil.dart';
 
 class BottomNavbarWidget extends StatefulWidget {
   BottomNavbarWidget({super.key});
@@ -14,6 +17,20 @@ class _BottomNavbarWidgetState extends State<BottomNavbarWidget> {
     void ItemSelected(int index) {
     setState(() {
       selectIndex = index;
+      switch (index) {
+        case 0:
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Home()));
+          break;
+        case 1:
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Placeholder()));
+          break;
+        case 2:
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Placeholder()));
+          break;
+        case 3:
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Placeholder()));
+          break;
+      }
     });
 }
   @override

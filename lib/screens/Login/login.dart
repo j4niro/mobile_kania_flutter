@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mobile_kania_flutter/screens/Home_page/home.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -61,7 +62,9 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                   SizedBox(height: 30,),
-                  TextButton(onPressed:(){}, 
+                  TextButton(onPressed:(){
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Home()));
+                  }, 
                   child: Container(
                     //width: width * 0.99,
                     height: 50,

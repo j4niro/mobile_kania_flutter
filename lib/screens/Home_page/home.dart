@@ -12,6 +12,53 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  void _showUserModal(BuildContext context) {
+    showDialog(
+      //barrierColor: Colors.white.withOpacity(0.5),
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Colors.white,
+          title: const Text('Informations', textAlign: TextAlign.center, style: TextStyle(fontSize: 19),),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              const ListTile(
+                leading: Icon(Icons.person),
+                title: Text('Kania'),
+                subtitle: Text('kania@gmail.com'),
+              ),
+              const SizedBox(height: 10),
+              TextButton(onPressed: () {
+                  // Handle logout action
+                  Navigator.of(context).pop(); // Close the dialog
+                }, child: Container (
+                  height : 40,
+                  width : 120,
+                  decoration: BoxDecoration(
+                    color: const Color(0XFFFF7900),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child : const Center(child: Text('Déconnexion', style: TextStyle(color: Colors.white),)),
+                )),
+            ],
+          ),
+          actions: <Widget>[
+            IconButton(onPressed:() {
+                Navigator.of(context).pop(); // Close the dialog
+              }, icon: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white,
+                ),
+                
+                child : Icon(Icons.close, color: Color(0XFFFF7900),)),)
+          ],
+        );
+      },
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +80,9 @@ class _HomeState extends State<Home> {
                 color: Color(0XFFFF7900),
               ),
               child : Icon(Icons.person, color: Colors.white,)),
-            onPressed: () {},
+            onPressed: () {
+              _showUserModal(context);
+            },
           ),
         ],
         ),
