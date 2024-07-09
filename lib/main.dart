@@ -12,11 +12,17 @@ import 'package:go_router/go_router.dart';
 
 
 void main() {
-  runApp(const PageRapport());
+  runApp( MyApp());
+}
+
+
+class MyApp extends StatelessWidget{
+  MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     final GoRouter _router = GoRouter(
-      initialLocation: '/accueil',
+      initialLocation: '/login',
       routes: [
         GoRoute(
           path: '/accueil',

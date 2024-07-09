@@ -45,7 +45,7 @@ class ComparaisonData {
       powerCollected: json['powerCollected'],
       diffPrix: json['diffPrix'],
       diffPower: json['diffPower'],
-      infSup: json['infSup'],
+      infSup: json['InfSup'],
       percent: json['percent'],
     );
   }
