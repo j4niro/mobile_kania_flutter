@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mobile_kania_flutter/screens/Home_page/home.dart';
+import 'package:go_router/go_router.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -61,13 +63,15 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                   SizedBox(height: 30,),
-                  TextButton(onPressed:(){}, 
+                  TextButton(onPressed:(){
+                    context.go('/home');
+                  }, 
                   child: Container(
                     //width: width * 0.99,
                     height: 50,
                     decoration: BoxDecoration(
                       color: Color(0XFFff7900),
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(7),
                     ),
                     child: Center(
                       child: Text('Se connecter', style: TextStyle(color: Colors.white, fontSize: 20),),
