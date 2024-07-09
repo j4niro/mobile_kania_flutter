@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Rapports extends StatelessWidget {
   const Rapports({super.key, this.text = "12 mars 2024 - 12 avril 2024", this.site = "KM4"});
@@ -19,11 +20,11 @@ class Rapports extends StatelessWidget {
       width: containerWidth,
       height: containerHeight,
       padding: EdgeInsets.all(8.0),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.25),
+            color: Colors.black,
             offset: Offset(0, 4.0),
             blurRadius: 4.0,
           )
@@ -55,7 +56,7 @@ class Rapports extends StatelessWidget {
             height: containerHeight * 0.14, // 14% of container height
             child: Text(
               text,
-              style: TextStyle(fontSize: 11, /*fontFamily: GoogleFonts.outfit().fontFamily*/),
+              style: TextStyle(fontSize: 11, fontFamily: GoogleFonts.outfit().fontFamily),
             ),
           ),
           Container(
@@ -65,7 +66,7 @@ class Rapports extends StatelessWidget {
               site,
               style: TextStyle(
                 fontSize: 11,
-                //fontFamily: GoogleFonts.outfit().fontFamily,
+                fontFamily: GoogleFonts.outfit().fontFamily,
                 fontWeight: FontWeight.bold,
                 color: Colors.deepOrangeAccent,
               ),
@@ -129,5 +130,6 @@ class Rapports extends StatelessWidget {
     );
   }
 }
+
 
 

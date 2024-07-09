@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:mobile_kania_flutter/data/models/comparaison.dart';
-import 'package:mobile_kania_flutter/myWidgets/rapports.dart';
+import 'package:mobile_kania_flutter/components/rapports.dart';
 import 'package:mobile_kania_flutter/services/Api.dart';
 
 class ListTabComparaison extends StatefulWidget {

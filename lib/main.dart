@@ -1,13 +1,12 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_kania_flutter/screens/comparaison_screen/page_comparaison.dart';
 import 'package:mobile_kania_flutter/screens/rapport_screen/page_rapport.dart';
 import 'package:mobile_kania_flutter/components/Graphes/linechart.dart';
-import 'package:mobile_kania_flutter/screens/Comparaison/comparaison.dart';
 import 'package:mobile_kania_flutter/screens/Formulaire/formulaire_mdp.dart';
 import 'package:mobile_kania_flutter/screens/Home_page/home.dart';
 import 'package:mobile_kania_flutter/screens/Login/login.dart';
 import 'package:mobile_kania_flutter/screens/Param%C3%A8tres/parametres.dart';
-import 'package:mobile_kania_flutter/screens/Rapport/page_rapport.dart';
 import 'package:mobile_kania_flutter/screens/accueil.dart';
 import 'package:go_router/go_router.dart';
 
@@ -41,7 +40,7 @@ void main() {
         ),
         GoRoute(
           path: '/comparaison',
-          builder: (context, state) => const Comparaison(),
+          builder: (context, state) => const PageComparaison(),
         ),
         GoRoute(
           path: '/formulairemodif',

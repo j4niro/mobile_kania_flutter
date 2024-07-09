@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_kania_flutter/screens/Home_page/home.dart';
-import 'package:mobile_kania_flutter/screens/Rapport/page_rapport.dart';
+import 'package:mobile_kania_flutter/screens/rapport_screen/page_rapport.dart';
 import 'package:mobile_kania_flutter/screens/accueil.dart';
 import 'package:go_router/go_router.dart';
 

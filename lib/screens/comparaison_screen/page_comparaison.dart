@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mobile_kania_flutter/screens/comparaison_screen/list_comparaison.dart';
 
 
-class PageRapport extends StatelessWidget {
-  const PageRapport({super.key});
+class PageComparaison extends StatelessWidget {
+  const PageComparaison({super.key});
 
   // This widget is the root of your application.
   @override
