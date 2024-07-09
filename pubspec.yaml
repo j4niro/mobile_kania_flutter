@@ -24,6 +24,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  google_fonts:
+  http:
 
 
   cupertino_icons: ^1.0.6

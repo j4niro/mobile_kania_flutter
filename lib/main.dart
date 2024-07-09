@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_kania_flutter/screens/rapport_screen/page_rapport.dart';
 import 'package:mobile_kania_flutter/components/Graphes/linechart.dart';
 import 'package:mobile_kania_flutter/screens/Comparaison/comparaison.dart';
 import 'package:mobile_kania_flutter/screens/Formulaire/formulaire_mdp.dart';
@@ -10,13 +11,9 @@ import 'package:mobile_kania_flutter/screens/Rapport/page_rapport.dart';
 import 'package:mobile_kania_flutter/screens/accueil.dart';
 import 'package:go_router/go_router.dart';
 
+
 void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+  runApp(const PageRapport());
   @override
   Widget build(BuildContext context) {
     final GoRouter _router = GoRouter(
@@ -64,6 +61,5 @@ class MyApp extends StatelessWidget {
       
     );
   }
+
 }
-
-
