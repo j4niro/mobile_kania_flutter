@@ -78,7 +78,7 @@ class _ParametresState extends State<Parametres> {
                     SizedBox(height: 30,),
                     TextButton(
                       onPressed: () {
-                        
+                        context.go('/infosites');
                       },
                       child: Container(
                         width: width * 0.7,

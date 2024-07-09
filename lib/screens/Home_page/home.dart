@@ -93,7 +93,8 @@ class _HomeState extends State<Home> {
             child: Column( 
               children: [
                 SizedBox(height: 20,),
-                //MainSelector(),
+                MainSelector(),
+                SizedBox(height: 40,),
                 Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

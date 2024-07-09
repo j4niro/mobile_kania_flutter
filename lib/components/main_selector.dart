@@ -8,6 +8,7 @@ import 'package:mobile_kania_flutter/components/selector/selector_site.dart';
 import 'package:mobile_kania_flutter/components/selector/selector_year.dart';
 
 
+
 class MainSelector extends StatefulWidget {
   @override
   _MainSelectorState createState() => _MainSelectorState();
@@ -15,14 +16,13 @@ class MainSelector extends StatefulWidget {
 
 class _MainSelectorState extends State<MainSelector> {
   DateTime selectedDate = DateTime.now();
-  String selectedType = 'Jour';
+  String selectedType = 'Jour'; // Par défaut
   List<Map<String, dynamic>> selectorPeriode = [
     {'text': 'Jour', 'active': true},
     {'text': 'Mois', 'active': false},
     {'text': 'Année', 'active': false},
   ];
-  List<String> siteOptions = ['Tout', 'Site1', 'Site2', 'Site3'];
-  String selectedSite = 'Tout';
+  List<String> siteOptions = ['Option 1', 'Option 2', 'Option 3']; // Exemple de données pour les sites
 
   void handleDateChange(DateTime newDate) {
     setState(() {
@@ -30,41 +30,56 @@ class _MainSelectorState extends State<MainSelector> {
     });
   }
 
-  void handleSiteChange(String value) {
-    setState(() {
-      selectedSite = value;
-    });
+  void handleSiteChange(int selectedIndex) {
+    // Implémentation pour changer de site
+    print('Site sélectionné: $selectedIndex');
   }
 
   void handleItemClick(int index, String type) {
     setState(() {
-      selectorPeriode.forEach((item) => item['active'] = false);
-      selectorPeriode[index]['active'] = true;
+      selectorPeriode.forEach((item) {
+        item['active'] = item['text'] == type;
+      });
       selectedType = type;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        MaConsoJour(
-          selectedDate: selectedDate,
-          selectedType: selectedType,
-        ),
-        Column(
-          children: [
-            SelectPeriode(
-              selectorItems: selectorPeriode,
-              onItemClick: handleItemClick,
+    double width = MediaQuery.of(context).size.width;
+    return  Container(
+        //padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            MaConsoJour(selectedDate: selectedDate, selectedType: selectedType),
+            SizedBox(height: 15.0),
+            Center(
+              child: SelectPeriode(
+                selectorItems: selectorPeriode,
+                onItemClick: handleItemClick,
+                width: width*0.95,
+              ),
             ),
-            if (selectedType == 'Jour') SelectorChild(onDateChange: handleDateChange),
-            if (selectedType == 'Mois') SelectorMonth(onDateChange: handleDateChange),
-            if (selectedType == 'Année') SelectorYear(onDateChange: handleDateChange),
-            SelectorSite(options: siteOptions, onSelectChange: handleSiteChange),
+            SizedBox(height: 15.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    if (selectedType == 'Jour') SelectorChild(onDateChange: handleDateChange),
+                    if (selectedType == 'Mois') SelectorMonth(onDateChange: handleDateChange),
+                    if (selectedType == 'Année') SelectorYear(onDateChange: handleDateChange),
+                  ],
+                ),
+                SelectorSite(options: siteOptions, onSelectChange: handleSiteChange),
+              ],
+            ),
+           
           ],
         ),
-      ],
-    );
+      );
   }
 }

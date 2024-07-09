@@ -45,7 +45,7 @@ class _FormulaireModifState extends State<FormulaireModif> {
                       fillColor: Colors.grey[200],
                       filled: true,
                       contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-                      hintText: 'Email ...',
+                      hintText: 'Email',
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(color: Color(0XFFff7900)),
