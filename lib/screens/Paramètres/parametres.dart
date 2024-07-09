@@ -91,9 +91,11 @@ class _ParametresState extends State<Parametres> {
                         ),
                         child: Center(
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
+                              SizedBox(width: 10,),
                               Icon(Icons.info_outline, color: Color(0XFFFF7900),),
+                              SizedBox(width: 10,),
                               Text(
                                 'Infomations sites',
                                 style: TextStyle(color: Colors.black, fontSize: 17, fontWeight: FontWeight.w400),
@@ -118,9 +120,11 @@ class _ParametresState extends State<Parametres> {
                         ),
                         child: Center(
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
+                               SizedBox(width: 10,),
                               Icon(Icons.lock_outline_rounded, color: Color(0XFFFF7900),),
+                               SizedBox(width: 10,),
                               Text(
                                 'Modifier le mot de passe',
                                 style: TextStyle(color: Colors.black, fontSize: 17, fontWeight: FontWeight.w400),
@@ -145,9 +149,11 @@ class _ParametresState extends State<Parametres> {
                         ),
                         child: Center(
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
+                               SizedBox(width: 10,),
                               Icon(Icons.favorite_border, color: Color(0XFFFF7900),),
+                               SizedBox(width: 10,),
                               Text(
                                 "Préférences d'affichage",
                                 style: TextStyle(color: Colors.black, fontSize: 17, fontWeight: FontWeight.w400),
@@ -172,9 +178,11 @@ class _ParametresState extends State<Parametres> {
                         ),
                         child: Center(
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
+                               SizedBox(width: 10,),
                               Icon(Icons.notification_important_outlined, color: Color(0XFFFF7900),),
+                               SizedBox(width: 10,),
                               Text(
                                 'Gestion de notification',
                                 style: TextStyle(color: Colors.black, fontSize: 17, fontWeight: FontWeight.w400),
@@ -199,9 +207,11 @@ class _ParametresState extends State<Parametres> {
                         ),
                         child: Center(
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
+                               SizedBox(width: 10,),
                               Icon(Icons.logout_outlined, color: Color(0XFFFF7900),),
+                               SizedBox(width: 10,),
                               Text(
                                 'Déconnexion',
                                 style: TextStyle(color: Colors.black, fontSize: 17, fontWeight: FontWeight.w400),

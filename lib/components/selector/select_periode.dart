@@ -10,6 +10,7 @@ class SelectPeriode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 5.0),
       width: width,
       height: 50,
       decoration: BoxDecoration(
