@@ -1,24 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart'; // Pour formater les dates
+import 'package:intl/intl.dart';
 
-class SelectorYear extends StatelessWidget {
+class SelectorYear extends StatefulWidget {
   final Function(DateTime) onDateChange;
 
   SelectorYear({required this.onDateChange});
 
-  void handleNext(DateTime date) {
-    DateTime nextDate = DateTime(date.year + 1);
-    onDateChange(nextDate);
+  @override
+  _SelectorYearState createState() => _SelectorYearState();
+}
+
+class _SelectorYearState extends State<SelectorYear> {
+  late DateTime selectedDate;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedDate = DateTime.now();
   }
 
-  void handlePrev(DateTime date) {
-    DateTime prevDate = DateTime(date.year - 1);
-    onDateChange(prevDate);
+  void handleNext() {
+    setState(() {
+      selectedDate = DateTime(selectedDate.year + 1);
+    });
+    widget.onDateChange(selectedDate);
+  }
+
+  void handlePrev() {
+    setState(() {
+      selectedDate = DateTime(selectedDate.year - 1);
+    });
+    widget.onDateChange(selectedDate);
   }
 
   @override
   Widget build(BuildContext context) {
-    DateTime selectedDate = DateTime.now();
     double width = MediaQuery.of(context).size.width;
     return Container(
       child: Row(
@@ -31,7 +47,7 @@ class SelectorYear extends StatelessWidget {
             ),
             child: IconButton(
               icon: Icon(Icons.chevron_left),
-              onPressed: () => handlePrev(selectedDate),
+              onPressed: handlePrev,
             ),
           ),
           SizedBox(width: 5),
@@ -45,7 +61,10 @@ class SelectorYear extends StatelessWidget {
                 initialDatePickerMode: DatePickerMode.year,
               ).then((pickedDate) {
                 if (pickedDate != null) {
-                  onDateChange(pickedDate);
+                  setState(() {
+                    selectedDate = pickedDate;
+                  });
+                  widget.onDateChange(selectedDate);
                 }
               });
             },
@@ -61,7 +80,6 @@ class SelectorYear extends StatelessWidget {
                 DateFormat('yyyy', 'fr_FR').format(selectedDate),
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  //fontFamily: 'Arial, Helvetica, sans-serif',
                   fontSize: 14.0,
                 ),
               ),
@@ -76,7 +94,7 @@ class SelectorYear extends StatelessWidget {
             ),
             child: IconButton(
               icon: Icon(Icons.chevron_right),
-              onPressed: () => handleNext(selectedDate),
+              onPressed: handleNext,
             ),
           ),
         ],

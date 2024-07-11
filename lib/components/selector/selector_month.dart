@@ -1,24 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart'; // Pour formater les dates
 
-class SelectorMonth extends StatelessWidget {
+class SelectorMonth extends StatefulWidget {
   final Function(DateTime) onDateChange;
 
   SelectorMonth({required this.onDateChange});
 
-  void handleNext(DateTime date) {
-    DateTime nextDate = DateTime(date.year, date.month + 1);
-    onDateChange(nextDate);
+  @override
+  _SelectorMonthState createState() => _SelectorMonthState();
+}
+
+class _SelectorMonthState extends State<SelectorMonth> {
+  late DateTime selectedDate;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedDate = DateTime.now();
   }
 
-  void handlePrev(DateTime date) {
-    DateTime prevDate = DateTime(date.year, date.month - 1);
-    onDateChange(prevDate);
+  void handleNext() {
+    setState(() {
+      selectedDate = DateTime(selectedDate.year, selectedDate.month + 1);
+    });
+    widget.onDateChange(selectedDate);
+  }
+
+  void handlePrev() {
+    setState(() {
+      selectedDate = DateTime(selectedDate.year, selectedDate.month - 1);
+    });
+    widget.onDateChange(selectedDate);
   }
 
   @override
   Widget build(BuildContext context) {
-    DateTime selectedDate = DateTime.now();
     double width = MediaQuery.of(context).size.width;
     return Container(
       child: Row(
@@ -31,7 +47,7 @@ class SelectorMonth extends StatelessWidget {
             ),
             child: IconButton(
               icon: Icon(Icons.chevron_left),
-              onPressed: () => handlePrev(selectedDate),
+              onPressed: handlePrev,
             ),
           ),
           SizedBox(width: 5),
@@ -45,7 +61,10 @@ class SelectorMonth extends StatelessWidget {
                 initialDatePickerMode: DatePickerMode.year,
               ).then((pickedDate) {
                 if (pickedDate != null) {
-                  onDateChange(pickedDate);
+                  setState(() {
+                    selectedDate = pickedDate;
+                  });
+                  widget.onDateChange(selectedDate);
                 }
               });
             },
@@ -76,7 +95,7 @@ class SelectorMonth extends StatelessWidget {
             ),
             child: IconButton(
               icon: Icon(Icons.chevron_right),
-              onPressed: () => handleNext(selectedDate),
+              onPressed: handleNext,
             ),
           ),
         ],

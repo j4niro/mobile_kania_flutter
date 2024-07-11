@@ -1,24 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart'; // Pour formater les dates
 
-class SelectorChild extends StatelessWidget {
+class SelectorChild extends StatefulWidget {
   final Function(DateTime) onDateChange;
 
   SelectorChild({required this.onDateChange});
 
-  void handleNext(DateTime date) {
-    DateTime nextDate = date.add(Duration(days: 1));
-    onDateChange(nextDate);
+  @override
+  _SelectorChildState createState() => _SelectorChildState();
+}
+
+class _SelectorChildState extends State<SelectorChild> {
+  late DateTime selectedDate;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedDate = DateTime.now();
   }
 
-  void handlePrev(DateTime date) {
-    DateTime prevDate = date.subtract(Duration(days: 1));
-    onDateChange(prevDate);
+  void handleNext() {
+    setState(() {
+      selectedDate = selectedDate.add(Duration(days: 1));
+    });
+    widget.onDateChange(selectedDate);
+  }
+
+  void handlePrev() {
+    setState(() {
+      selectedDate = selectedDate.subtract(Duration(days: 1));
+    });
+    widget.onDateChange(selectedDate);
   }
 
   @override
   Widget build(BuildContext context) {
-    DateTime selectedDate = DateTime.now();
     double width = MediaQuery.of(context).size.width;
     return Container(
       child: Row(
@@ -31,7 +47,7 @@ class SelectorChild extends StatelessWidget {
             ),
             child: IconButton(
               icon: Icon(Icons.chevron_left),
-              onPressed: () => handlePrev(selectedDate),
+              onPressed: handlePrev,
             ),
           ),
           SizedBox(width: 5),
@@ -44,7 +60,10 @@ class SelectorChild extends StatelessWidget {
                 lastDate: DateTime(2100),
               ).then((pickedDate) {
                 if (pickedDate != null) {
-                  onDateChange(pickedDate);
+                  setState(() {
+                    selectedDate = pickedDate;
+                  });
+                  widget.onDateChange(selectedDate);
                 }
               });
             },
@@ -75,7 +94,7 @@ class SelectorChild extends StatelessWidget {
             ),
             child: IconButton(
               icon: Icon(Icons.chevron_right),
-              onPressed: () => handleNext(selectedDate),
+              onPressed: handleNext,
             ),
           ),
         ],

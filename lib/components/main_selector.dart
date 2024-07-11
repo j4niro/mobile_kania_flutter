@@ -22,7 +22,7 @@ class _MainSelectorState extends State<MainSelector> {
     {'text': 'Mois', 'active': false},
     {'text': 'Année', 'active': false},
   ];
-  List<String> siteOptions = ['Option 1', 'Option 2', 'Option 3']; // Exemple de données pour les sites
+  List<String> siteOptions = ['VITIB', 'KM4', 'ODC']; // Exemple de données pour les sites
 
   void handleDateChange(DateTime newDate) {
     setState(() {
@@ -48,12 +48,11 @@ class _MainSelectorState extends State<MainSelector> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     return  Container(
-        //padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             MaConsoJour(selectedDate: selectedDate, selectedType: selectedType),
-            SizedBox(height: 15.0),
+            const SizedBox(height: 15.0),
             Center(
               child: SelectPeriode(
                 selectorItems: selectorPeriode,
@@ -61,12 +60,11 @@ class _MainSelectorState extends State<MainSelector> {
                 width: width*0.95,
               ),
             ),
-            SizedBox(height: 15.0),
+            const SizedBox(height: 15.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
-                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     if (selectedType == 'Jour') SelectorChild(onDateChange: handleDateChange),
