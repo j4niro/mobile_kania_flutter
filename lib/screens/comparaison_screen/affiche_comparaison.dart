@@ -1,14 +1,14 @@
 import 'dart:convert';
-
-import 'package:flutter/material.dart';
 import 'package:flutter_session_manager/flutter_session_manager.dart';
+import 'package:mobile_kania_flutter/services/shared_preferences.dart';
+import 'package:flutter/material.dart';
 import 'package:mobile_kania_flutter/services/models/comparaison.dart';
 import 'package:mobile_kania_flutter/components/rapports.dart';
 import 'package:mobile_kania_flutter/services/api/Api.dart';
-import 'package:mobile_kania_flutter/services/shared_preferences.dart';
 
 class ListTabComparaison extends StatefulWidget {
   const ListTabComparaison({super.key});
+
   @override
   createState() => _ListTabState();
 }
@@ -16,30 +16,30 @@ class ListTabComparaison extends StatefulWidget {
 // State de la liste. Il contient la liste des éléments et gère l'affichage
 // d'un loader pendant le chargement des données.
 class _ListTabState extends State<ListTabComparaison> {
-  var prefs;
-  List<ComparaisonData> _data = <ComparaisonData>[];
-  List<Widget> _rapportList = <Widget>[];
+  late ComparaisonData _data;
+  var _rapportList;
   bool _loading = true;
- var sessionManager = SessionManager();
+  var prefs;
+  var sessionManager = SessionManager();
   _getData() async {
-    var response = await API.getUserComparaison(await sessionManager.get("userEmail"));
+    var response = await API.getUserComparaisonByID(await sessionManager.get("userEmail"), prefs.get("id"));
     if (response.statusCode == 200) {
-      Iterable list = json.decode(response.body);
+      var list = json.decode(response.body);
       setState(() {
-        _data = list.map((model) => ComparaisonData.fromJson(model)).toList();
-        _rapportList = _data.map((e) => Rapports(id : e.id, text: e.periode, site: e.siteName, )).toList();
+        _data = ComparaisonData.fromJson(list);
+        _rapportList = Rapports(id : _data.id, text: _data.periode, site: _data.siteName);
         _loading = false;
       });
     } else {
-      throw Exception('Erreu récupération des données');
+      throw Exception('Erreur récupération des données');
     }
   }
 
   @override
   void initState() {
     super.initState();
-    prefs = loadPreferences();
     _getData();
+    prefs = loadPreferences();
   }
 
   @override
@@ -55,21 +55,7 @@ class _ListTabState extends State<ListTabComparaison> {
         child: CircularProgressIndicator(),
       );
     } else {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: GridView.count(
-              primary: false,
-              padding: const EdgeInsets.all(8.0),
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              crossAxisCount: 2,
-              children: _rapportList,
-            ),
-          ),
-        ],
-      );
+      return _rapportList;
     }
   }
 }

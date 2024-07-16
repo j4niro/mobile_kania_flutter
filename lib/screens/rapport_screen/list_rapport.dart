@@ -1,9 +1,11 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:mobile_kania_flutter/services/models/rapport.dart';
 import 'package:mobile_kania_flutter/components/rapports.dart';
 import 'package:mobile_kania_flutter/services/api/Api.dart';
+import 'package:mobile_kania_flutter/services/shared_preferences.dart';
 
 class ListTabRapport extends StatefulWidget {
   const ListTabRapport({super.key});
@@ -18,14 +20,15 @@ class _ListTabState extends State<ListTabRapport> {
   List<RapportData> _data = <RapportData>[];
   List<Widget> _rapportList = <Widget>[];
   bool _loading = true;
+  var sessionManager = SessionManager();
 
   _getData() async {
-    var response = await API.getUserRapports();
+    var response = await API.getUserRapports(await sessionManager.get("userEmail"));
     if (response.statusCode == 200) {
       Iterable list = json.decode(response.body);
       setState(() {
         _data = list.map((model) => RapportData.fromJson(model)).toList();
-        _rapportList = _data.map((e) => Rapports(text: e.periode, site: e.sitename)).toList();
+        _rapportList = _data.map((e) => Rapports(id: e.siteId, text: e.periode, site: e.sitename)).toList();
         _loading = false;
       });
     } else {

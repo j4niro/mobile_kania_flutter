@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:mobile_kania_flutter/services/api/api_services.dart'; // Assurez-vous d'importer votre service API
 import 'package:go_router/go_router.dart';
+import 'package:mobile_kania_flutter/services/shared_preferences.dart';
+import 'package:flutter_session_manager/flutter_session_manager.dart';
+var prefs;
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -17,6 +20,12 @@ class _LoginState extends State<Login> {
   bool _isLoading = false;
   String? _errorMessage;
 
+
+  @override
+  void initState() {
+    super.initState();
+    prefs = loadPreferences();
+  }
   void _handleSubmit() async {
     setState(() {
       _isLoading = true;
@@ -30,6 +39,15 @@ class _LoginState extends State<Login> {
       );
 
       if (response['statut'] == 'success') {
+
+        var sessionData = response['data'];
+        var sessionManager = SessionManager();
+
+        await sessionManager.set('userToken', sessionData['userToken']);
+        await sessionManager.set('userEmail', sessionData['user']);
+        await sessionManager.set('userName', sessionData['name']);
+        await sessionManager.set('userType', sessionData['type']);
+
         context.go('/home');
       } else {
         setState(() {

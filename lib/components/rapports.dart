@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mobile_kania_flutter/services/shared_preferences.dart';
+
 
 class Rapports extends StatelessWidget {
-  const Rapports({super.key, this.text = "12 mars 2024 - 12 avril 2024", this.site = "KM4"});
+  Rapports({super.key, required this.id, this.text = "12 mars 2024 - 12 avril 2024", this.site = "KM4"  });
+  final id;
   final String text;
   final String site;
 
+
+   void printInfo(BuildContext context) async {
+    var prefs = await loadPreferences();
+    prefs.setInt("id", id);
+    context.go("/afficheComparaison"); // Navigation vers la page "/home" la page afficheComparaison doit récupérer l'id du document pour l'afficher en récupérant une nouvelle fois le document dans la base de donnée mysql
+  }
   @override
   Widget build(BuildContext context) {
     // Get the screen width and height
@@ -111,7 +121,7 @@ class Rapports extends StatelessWidget {
                             ),
               ),
               IconButton(
-                onPressed: null,
+                onPressed: () => printInfo(context),
                 icon: Container(
                   width: containerWidth * 0.22, // 22% of container width
                   height: containerHeight * 0.14, // 9% of container height

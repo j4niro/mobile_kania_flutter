@@ -2,30 +2,17 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-const String baseUrl = "http://192.168.252.210:5000/api/v1";
-
+const String baseUrl = "http://192.168.252.133:5000/api/v1";
 class API {
-  static Future<http.Response> getUserRapports() {
+  static Future<http.Response> getUserRapports(String email) {
     return http.post(
       Uri.parse("$baseUrl/data/getUserRapports"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: jsonEncode(<String, String>{
-        "user": "kania@gmail.com",
-      }),
-    );
-  }
-
-  static Future<http.Response> login(String email, String password) {
-    return http.post(
-      Uri.parse("$baseUrl/user/connexion"),
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-      body: jsonEncode(<String, String>{
-        "email": email,
-        "password": password,
+        "user": email,
+        
       }),
     );
   }
@@ -46,17 +33,31 @@ class API {
     );
   }
   
-  static Future<http.Response> getUserComparaison() {
+  static Future<http.Response> getUserComparaison(String email) {
     return http.post(
       Uri.parse("$baseUrl/data/getUserComparaisons"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: jsonEncode(<String, String>{
-        "user": "kania@gmail.com",
+        "user": email,
+        
       }),
     );
   }
+
+  static Future<http.Response> getUserComparaisonByID(String email, String id) {
+    return http.post(
+      Uri.parse("$baseUrl/data/getUserComparaisons"),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        "user": email,
+        "id": id
+      }),
+    );
+  }  
 
 }
 
