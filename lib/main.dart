@@ -10,6 +10,7 @@ import 'package:mobile_kania_flutter/screens/Login/login.dart';
 import 'package:mobile_kania_flutter/screens/Param%C3%A8tres/info_sites.dart';
 import 'package:mobile_kania_flutter/screens/Param%C3%A8tres/parametres.dart';
 import 'package:mobile_kania_flutter/screens/Rapport/page_rapport.dart';
+import 'package:mobile_kania_flutter/screens/RapportComp/rapport_comparaison.dart';
 import 'package:mobile_kania_flutter/screens/accueil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/date_symbol_data_local.dart'; 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GoRouter _router = GoRouter(
-      initialLocation: '/accueil',
+      initialLocation: '/rapportcomp',
       routes: [
         GoRoute(
           path: '/accueil',
@@ -61,6 +62,8 @@ class MyApp extends StatelessWidget {
         GoRoute (path:'/mainselector',
           builder: (context, state) => MainSelector()
         ),
+        GoRoute(path: '/rapportcomp',
+          builder:(context, state) => RapportComparaison())
       ],
     );
     return MaterialApp.router(
