@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mobile_kania_flutter/screens/Home_page/home.dart';
 import 'package:mobile_kania_flutter/services/api/api_services.dart'; // Assurez-vous d'importer votre service API
 import 'package:go_router/go_router.dart';
 import 'package:mobile_kania_flutter/services/shared_preferences.dart';
@@ -48,7 +49,11 @@ class _LoginState extends State<Login> {
         await sessionManager.set('userName', sessionData['name']);
         await sessionManager.set('userType', sessionData['type']);
 
-        context.go('/home');
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => const Home(),
+          ),)
+        ;
       } else {
         setState(() {
           _errorMessage = response['statut'];
@@ -70,90 +75,90 @@ class _LoginState extends State<Login> {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 100),
-            Center(
-              child: Column(
-                children: [
-                  Lottie.asset(
-                    'assets/Animation - 1720025571978.json',
-                    width: width * 0.9,
-                  ),
-                  const Text(
-                    'Connectez-vous ici!',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
-                  ),
-                ],
+          child: Column(
+            children: [
+              const SizedBox(height: 100),
+              Center(
+                child: Column(
+                  children: [
+                    Lottie.asset(
+                      'assets/Animation - 1720025571978.json',
+                      width: width * 0.9,
+                    ),
+                    const Text(
+                      'Connectez-vous ici!',
+                      style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(height: 50),
-            Container(
-              width: width * 0.9,
-              child: Column(
-                children: [
-                  TextField(
-                    controller: _emailController,
-                    decoration: InputDecoration(
-                      fillColor: Colors.grey[200],
-                      filled: true,
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Color(0XFFff7900)),
-                      ),
-                      hintText: 'Email ...',
-                    ),
-                  ),
-                  const SizedBox(height: 30),
-                  TextField(
-                    controller: _passwordController,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      fillColor: Colors.grey[200],
-                      filled: true,
-                      hintText: 'Mot de passe ...',
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Color(0XFFff7900)),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 30),
-                  if (_isLoading)
-                    const CircularProgressIndicator(
-                      color: Color(0XFFff7900),
-                    )
-                  else
-                    TextButton(
-                      onPressed: _handleSubmit,
-                      child: Container(
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: const Color(0XFFff7900),
-                          borderRadius: BorderRadius.circular(7),
+              const SizedBox(height: 50),
+              Container(
+                width: width * 0.9,
+                child: Column(
+                  children: [
+                    TextField(
+                      controller: _emailController,
+                      decoration: InputDecoration(
+                        fillColor: Colors.grey[200],
+                        filled: true,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(color: Color(0XFFff7900)),
                         ),
-                        child: const Center(
-                          child: Text(
-                            'Se connecter',
-                            style: TextStyle(color: Colors.white, fontSize: 20),
+                        hintText: 'Email ...',
+                      ),
+                    ),
+                    const SizedBox(height: 30),
+                    TextField(
+                      controller: _passwordController,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        fillColor: Colors.grey[200],
+                        filled: true,
+                        hintText: 'Mot de passe ...',
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(color: Color(0XFFff7900)),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 30),
+                    if (_isLoading)
+                      const CircularProgressIndicator(
+                        color: Color(0XFFff7900),
+                      )
+                    else
+                      TextButton(
+                        onPressed: _handleSubmit,
+                        child: Container(
+                          height: 50,
+                          decoration: BoxDecoration(
+                            color: const Color(0XFFff7900),
+                            borderRadius: BorderRadius.circular(7),
+                          ),
+                          child: const Center(
+                            child: Text(
+                              'Se connecter',
+                              style: TextStyle(color: Colors.white, fontSize: 20),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  if (_errorMessage != null)
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20.0),
-                      child: Text(
-                        _errorMessage!,
-                        style: const TextStyle(color: Colors.red),
+                    if (_errorMessage != null)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20.0),
+                        child: Text(
+                          _errorMessage!,
+                          style: const TextStyle(color: Colors.red),
+                        ),
                       ),
-                    ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
     );
   }
 }

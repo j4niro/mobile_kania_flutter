@@ -14,9 +14,7 @@ class _ParametresState extends State<Parametres> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      appBar: CustomAppBar(key: null),
-      body: Container(
+    return Container(
         child: Column(
           children: [
             Container(
@@ -228,8 +226,6 @@ class _ParametresState extends State<Parametres> {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavbarWidget(),
-    );
+      );
   }
 }

@@ -10,9 +10,7 @@ class PageRapport extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: CustomAppBar(),
-        body: SafeArea(
+    return SafeArea(
           child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -31,8 +29,6 @@ class PageRapport extends StatelessWidget {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavbarWidget(),
-     );
+      );
   }
 }

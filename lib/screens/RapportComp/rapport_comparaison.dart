@@ -16,9 +16,7 @@ class _RapportComparaisonState extends State<RapportComparaison> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    return Scaffold(
-      appBar: CustomAppBar(),
-      body: Padding(
+    return Padding(
         padding: const EdgeInsets.all(10.0),
         child: Container(
           //width: width*0.8,
@@ -242,8 +240,6 @@ class _RapportComparaisonState extends State<RapportComparaison> {
               )
             ],
         ),
-      )),
-      bottomNavigationBar: BottomNavbarWidget(),
-      );
-  }
+      ));
+}
 }

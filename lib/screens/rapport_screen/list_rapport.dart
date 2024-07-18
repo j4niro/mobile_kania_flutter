@@ -52,7 +52,9 @@ class _ListTabState extends State<ListTabRapport> {
     if (_loading) {
       // Loader
       return const Center(
-        child: CircularProgressIndicator(),
+        child: CircularProgressIndicator(
+          color: Color(0XFFFF7900),
+        ),
       );
     } else {
       return Column(

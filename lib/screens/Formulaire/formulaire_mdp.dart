@@ -14,9 +14,7 @@ class _FormulaireModifState extends State<FormulaireModif> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    return Scaffold(
-      appBar : CustomAppBar(),
-      body: Center(
+    return Center(
         child:Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
@@ -72,8 +70,6 @@ class _FormulaireModifState extends State<FormulaireModif> {
               ),
           ),
         ) ,
-        ),
-        bottomNavigationBar: BottomNavbarWidget(),
-    );;
+        );
   }
 }

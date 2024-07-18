@@ -12,7 +12,7 @@ class ComparaisonData {
   String diffPrix;
   String diffPower;
   String infSup;
-  double percent;
+  String percent;
 
   ComparaisonData({
     this.id,
