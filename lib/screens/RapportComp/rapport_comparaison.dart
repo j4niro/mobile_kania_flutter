@@ -99,20 +99,38 @@ class _RapportComparaisonState extends State<RapportComparaison> {
                         ),
                       
                       children: [
-                        Column(children:[Text('TITRE', style: TextStyle(color: Colors.white),)]),
-                        Column(children:[Text('VALEURS',style: TextStyle(color: Colors.white)), ]),
+                        Padding(
+                          padding: const EdgeInsets.all(7.0),
+                          child: Column(children:[Text('TITRE', style: TextStyle(color: Colors.white),)]),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(7.0),
+                          child: Column(children:[Text('VALEURS',style: TextStyle(color: Colors.white)), ]),
+                        ),
                       ]
                     ),
                     TableRow(
                       children: [
-                        Column(children:[Text('Consommation en kWh')]),
-                        Column(children:[Text('5000')]),
+                        Padding(
+                          padding: const EdgeInsets.all(7.0),
+                          child: Column(children:[Text('Consommation en kWh')]),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(7.0),
+                          child: Column(children:[Text('5000')]),
+                        ),
                       ]
                     ),
                     TableRow(
                       children: [
-                        Column(children:[Text('Facture en FCFA')]),
-                        Column(children:[Text('350000')]),
+                        Padding(
+                          padding: const EdgeInsets.all(7.0),
+                          child: Column(children:[Text('Facture en FCFA')]),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(7.0),
+                          child: Column(children:[Text('350000')]),
+                        ),
                       ]
                     ),
                   ],
@@ -152,20 +170,38 @@ class _RapportComparaisonState extends State<RapportComparaison> {
                         ),
                       
                       children: [
-                        Column(children:[Text('TITRE', style: TextStyle(color: Colors.white),)]),
-                        Column(children:[Text('VALEURS',style: TextStyle(color: Colors.white)), ]),
+                        Padding(
+                          padding: const EdgeInsets.all(7.0),
+                          child: Column(children:[Text('TITRE', style: TextStyle(color: Colors.white),)]),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(7.0),
+                          child: Column(children:[Text('VALEURS',style: TextStyle(color: Colors.white)), ]),
+                        ),
                       ]
                     ),
                     TableRow(
                       children: [
-                        Column(children:[Text('Consommation en kWh')]),
-                        Column(children:[Text('4300')]),
+                        Padding(
+                          padding: const EdgeInsets.all(7.0),
+                          child: Column(children:[Text('Consommation en kWh')]),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(7.0),
+                          child: Column(children:[Text('4300')]),
+                        ),
                       ]
                     ),
                     TableRow(
                       children: [
-                        Column(children:[Text('Facture en FCFA')]),
-                        Column(children:[Text('310000')]),
+                        Padding(
+                          padding: const EdgeInsets.all(7.0),
+                          child: Column(children:[Text('Facture en FCFA')]),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(7.0),
+                          child: Column(children:[Text('310000')]),
+                        ),
                       ]
                     ),
                   ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mobile_kania_flutter/screens/Login/login.dart';
 
 class Accueil extends StatefulWidget {
   const Accueil({super.key});
@@ -13,7 +14,7 @@ class _AccueilState extends State<Accueil> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
-      context.go('/login');
+     context.go('/login');
     });
   }
 

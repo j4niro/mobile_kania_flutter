@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mobile_kania_flutter/main.dart';
 import 'package:mobile_kania_flutter/screens/Home_page/home.dart';
 import 'package:mobile_kania_flutter/services/api/api_services.dart'; // Assurez-vous d'importer votre service API
 import 'package:go_router/go_router.dart';
@@ -49,11 +50,7 @@ class _LoginState extends State<Login> {
         await sessionManager.set('userName', sessionData['name']);
         await sessionManager.set('userType', sessionData['type']);
 
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(
-            builder: (context) => const Home(),
-          ),)
-        ;
+        context.go('/home');
       } else {
         setState(() {
           _errorMessage = response['statut'];

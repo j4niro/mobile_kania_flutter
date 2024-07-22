@@ -13,7 +13,7 @@ class Rapports extends StatelessWidget {
    void printInfo(BuildContext context) async {
     var prefs = await loadPreferences();
     prefs.setInt("id", id);
-    context.go("/afficheComparaison"); // Navigation vers la page "/home" la page afficheComparaison doit récupérer l'id du document pour l'afficher en récupérant une nouvelle fois le document dans la base de donnée mysql
+    context.go("/rapport_comparaison"); // Navigation vers la page "/home" la page afficheComparaison doit récupérer l'id du document pour l'afficher en récupérant une nouvelle fois le document dans la base de donnée mysql
   }
   @override
   Widget build(BuildContext context) {

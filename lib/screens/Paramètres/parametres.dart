@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mobile_kania_flutter/components/botton_navbar.dart';
 import 'package:mobile_kania_flutter/components/custom_app_bar.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mobile_kania_flutter/main.dart';
+import 'package:mobile_kania_flutter/screens/Formulaire/formulaire_mdp.dart';
+import 'package:mobile_kania_flutter/screens/Param%C3%A8tres/info_sites.dart';
 
 class Parametres extends StatefulWidget {
   const Parametres({super.key});
@@ -76,7 +79,7 @@ class _ParametresState extends State<Parametres> {
                     SizedBox(height: 30,),
                     TextButton(
                       onPressed: () {
-                        context.go('/infosites');
+                        context.go('/info_sites');
                       },
                       child: Container(
                         width: width * 0.7,
@@ -105,7 +108,7 @@ class _ParametresState extends State<Parametres> {
                       ),
                       TextButton(
                       onPressed: () {
-                        context.go('/formulairemodif');
+                        context.go('/formulaire_mdp');
                       },
                       child: Container(
                         width: width * 0.7,

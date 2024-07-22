@@ -31,7 +31,7 @@ class _ListTabState extends State<ListTabComparaison> {
         _loading = false;
       });
     } else {
-      throw Exception('Erreu récupération des données');
+      throw Exception('Erreur récupération des données');
     }
   }
 
