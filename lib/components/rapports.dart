@@ -91,7 +91,7 @@ class Rapports extends StatelessWidget {
                   child: IconButton(
                     style: IconButton.styleFrom(padding: EdgeInsets.all(0)),
                   onPressed: null,
-                  icon: Image.asset("assets/image 13.png", fit: BoxFit.contain),
+                  icon: Image.asset("assets/pdf.png", fit: BoxFit.contain),
                                 ),
                 ),
               Container(
@@ -103,7 +103,7 @@ class Rapports extends StatelessWidget {
                 icon: SizedBox(
                   width: containerWidth * 0.13, // 13% of container width
                   height: containerHeight * 0.15, // 15% of container height
-                  child: Image.asset("assets/image 14.png", scale: 1,),
+                  child: Image.asset("assets/excel.png", scale: 1,),
                 ),
                             ),
               ),
@@ -116,7 +116,7 @@ class Rapports extends StatelessWidget {
                 icon: SizedBox(
                   width: containerWidth * 0.13, // 13% of container width
                   height: containerHeight * 0.15, // 15% of container height
-                  child: Image.asset("assets/image 15.png"),
+                  child: Image.asset("assets/csv.png"),
                 ),
                             ),
               ),
@@ -129,7 +129,7 @@ class Rapports extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(5)),
                     color: Colors.deepOrangeAccent,
                   ),
-                  child: Image.asset("assets/image 10.png"),
+                  child: Center(child: Image.asset("assets/view2.png")),
                 ),
               ),
             ],
