@@ -49,6 +49,7 @@ class _ListTabState extends State<ListTabComparaison> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     if (_loading) {
       // Loader
       return const Center(
@@ -60,6 +61,46 @@ class _ListTabState extends State<ListTabComparaison> {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+              'Comparaison',
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(
+              height: 7,
+            ),
+            Text('Ajoutez une facture fournie par les prestataires et obtenez un', style: TextStyle(fontSize: 10),),
+            Text('rapport de comparaison avec nos données prélevées.', style: TextStyle(fontSize: 10)),
+                ],
+              )
+            ),
+          ),
+          SizedBox(height: 10,),
+          TextButton(
+                        onPressed: null,
+                        child: Container(
+                          height: 36,
+                          width: width * 0.35,
+                          decoration: BoxDecoration(
+                            color: const Color(0XFFff7900),
+                            borderRadius: BorderRadius.circular(7),
+                          ),
+                          child: const Center(
+                            child: Text(
+                              'Comparer',
+                              style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      ),
           Expanded(
             child: GridView.count(
               primary: false,

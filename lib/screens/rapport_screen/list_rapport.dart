@@ -60,6 +60,28 @@ class _ListTabState extends State<ListTabRapport> {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+              'Mes rapports',
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(
+              height: 7,
+            ),
+            Text('Visualisez et téléchargez votre rapport de consommation', style: TextStyle(fontSize: 10),),
+            Text('électrique au format PDF,Excel ou CSV.', style: TextStyle(fontSize: 10)),
+                ],
+              )
+            ),
+          ),
           Expanded(
             child: GridView.count(
               primary: false,

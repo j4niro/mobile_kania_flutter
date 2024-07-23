@@ -61,7 +61,7 @@ class _RapportComparaisonState extends State<RapportComparaison> {
               SizedBox(height: 30,),
               Column(
                 children: [
-                  Center(child: Text('Comparaison de consommation du', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)),
+                  Center(child: Text('Comparaison de consommation du', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),)),
                   Center(child: Text('17/07/2023-18/07/2024',style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xffff7900)),)),
                 ],
               ),
@@ -100,11 +100,11 @@ class _RapportComparaisonState extends State<RapportComparaison> {
                       
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(7.0),
+                          padding: const EdgeInsets.all(4.0),
                           child: Column(children:[Text('TITRE', style: TextStyle(color: Colors.white),)]),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(7.0),
+                          padding: const EdgeInsets.all(4.0),
                           child: Column(children:[Text('VALEURS',style: TextStyle(color: Colors.white)), ]),
                         ),
                       ]
@@ -112,11 +112,11 @@ class _RapportComparaisonState extends State<RapportComparaison> {
                     TableRow(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(7.0),
+                          padding: const EdgeInsets.all(4.0),
                           child: Column(children:[Text('Consommation en kWh')]),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(7.0),
+                          padding: const EdgeInsets.all(4.0),
                           child: Column(children:[Text('5000')]),
                         ),
                       ]
@@ -124,11 +124,11 @@ class _RapportComparaisonState extends State<RapportComparaison> {
                     TableRow(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(7.0),
+                          padding: const EdgeInsets.all(4.0),
                           child: Column(children:[Text('Facture en FCFA')]),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(7.0),
+                          padding: const EdgeInsets.all(4.0),
                           child: Column(children:[Text('350000')]),
                         ),
                       ]
@@ -171,11 +171,11 @@ class _RapportComparaisonState extends State<RapportComparaison> {
                       
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(7.0),
+                          padding: const EdgeInsets.all(4.0),
                           child: Column(children:[Text('TITRE', style: TextStyle(color: Colors.white),)]),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(7.0),
+                          padding: const EdgeInsets.all(4.0),
                           child: Column(children:[Text('VALEURS',style: TextStyle(color: Colors.white)), ]),
                         ),
                       ]
@@ -183,11 +183,11 @@ class _RapportComparaisonState extends State<RapportComparaison> {
                     TableRow(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(7.0),
+                          padding: const EdgeInsets.all(4.0),
                           child: Column(children:[Text('Consommation en kWh')]),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(7.0),
+                          padding: const EdgeInsets.all(4.0),
                           child: Column(children:[Text('4300')]),
                         ),
                       ]
@@ -195,11 +195,11 @@ class _RapportComparaisonState extends State<RapportComparaison> {
                     TableRow(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(7.0),
+                          padding: const EdgeInsets.all(4.0),
                           child: Column(children:[Text('Facture en FCFA')]),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(7.0),
+                          padding: const EdgeInsets.all(4.0),
                           child: Column(children:[Text('310000')]),
                         ),
                       ]
@@ -271,7 +271,7 @@ class _RapportComparaisonState extends State<RapportComparaison> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text('Conclusion'),
+                  Text('Conclusion', style: TextStyle(fontSize: 17, color: Color(0Xffff7900)),),
                 ],
               )
             ],
