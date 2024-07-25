@@ -27,7 +27,7 @@ class _ListTabState extends State<ListTabComparaison> {
       Iterable list = json.decode(response.body);
       setState(() {
         _data = list.map((model) => ComparaisonData.fromJson(model)).toList();
-        _rapportList = _data.map((e) => Rapports(id : e.id, text: e.periode, site: e.siteName, )).toList();
+        _rapportList = _data.map((e) => Rapports(id : e.id, text: e.periode, site: e.siteName, reportType: 'comparaison', )).toList();
         _loading = false;
       });
     } else {

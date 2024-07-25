@@ -28,7 +28,7 @@ class _ListTabState extends State<ListTabRapport> {
       Iterable list = json.decode(response.body);
       setState(() {
         _data = list.map((model) => RapportData.fromJson(model)).toList();
-        _rapportList = _data.map((e) => Rapports(id: e.siteId, text: e.periode, site: e.sitename)).toList();
+        _rapportList = _data.map((e) => Rapports(id: e.siteId, text: e.periode, site: e.sitename, reportType: 'consommation',)).toList();
         _loading = false;
       });
     } else {

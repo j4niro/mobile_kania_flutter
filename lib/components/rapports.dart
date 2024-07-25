@@ -4,16 +4,21 @@ import 'package:mobile_kania_flutter/services/shared_preferences.dart';
 
 
 class Rapports extends StatelessWidget {
-  Rapports({super.key, required this.id, this.text = "12 mars 2024 - 12 avril 2024", this.site = "KM4"  });
+  Rapports({super.key, required this.id, this.text = "12 mars 2024 - 12 avril 2024", this.site = "KM4", required this.reportType });
   final id;
   final String text;
   final String site;
+  final String reportType;
 
 
    void printInfo(BuildContext context) async {
     var prefs = await loadPreferences();
     prefs.setInt("id", id);
-    context.go("/rapport_comparaison"); // Navigation vers la page "/home" la page afficheComparaison doit récupérer l'id du document pour l'afficher en récupérant une nouvelle fois le document dans la base de donnée mysql
+    if (reportType == 'comparaison') {
+      context.go("/rapport_comparaison"); // Navigation vers la page de rapport de comparaison
+    } else if (reportType == 'consommation') {
+      context.go("/rapport_consommation"); // Navigation vers la page de rapport de consommation
+    }
   }
   @override
   Widget build(BuildContext context) {
