@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobile_kania_flutter/components/botton_navbar.dart';
 import 'package:mobile_kania_flutter/components/custom_app_bar.dart';
+import 'package:mobile_kania_flutter/screens/Formulaire/formulaire_comparaison.dart';
 import 'package:mobile_kania_flutter/screens/Formulaire/formulaire_mdp.dart';
 import 'package:mobile_kania_flutter/screens/Home_page/home.dart';
 import 'package:mobile_kania_flutter/screens/Login/login.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GoRouter _router = GoRouter(
-      initialLocation: '/accueil',
+      initialLocation: '/formcomp',
       routes: [
         GoRoute(
           path: '/login',
@@ -64,6 +65,9 @@ class MyApp extends StatelessWidget {
             GoRoute(path:'/rapport_comparaison',
               builder: (context, state) => const RapportComparaison(),
             ),
+            GoRoute(path: '/formcomp',
+             builder: (context, state) => const FormComp(),
+            )
           ],
         ),
       ],
