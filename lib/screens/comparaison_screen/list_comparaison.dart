@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_session_manager/flutter_session_manager.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mobile_kania_flutter/services/models/comparaison.dart';
 import 'package:mobile_kania_flutter/components/rapports.dart';
 import 'package:mobile_kania_flutter/services/api/Api.dart';
@@ -85,7 +86,8 @@ class _ListTabState extends State<ListTabComparaison> {
           ),
           SizedBox(height: 10,),
           TextButton(
-                        onPressed: null,
+                        onPressed: (){
+                          context.go('/formcomp');},
                         child: Container(
                           height: 36,
                           width: width * 0.35,

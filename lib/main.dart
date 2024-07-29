@@ -4,6 +4,7 @@ import 'package:mobile_kania_flutter/components/botton_navbar.dart';
 import 'package:mobile_kania_flutter/components/custom_app_bar.dart';
 import 'package:mobile_kania_flutter/screens/Formulaire/formulaire_comparaison.dart';
 import 'package:mobile_kania_flutter/screens/Formulaire/formulaire_mdp.dart';
+import 'package:mobile_kania_flutter/screens/Formulaire/formulaire_reset_mdp.dart';
 import 'package:mobile_kania_flutter/screens/Home_page/home.dart';
 import 'package:mobile_kania_flutter/screens/Login/login.dart';
 import 'package:mobile_kania_flutter/screens/Param%C3%A8tres/info_sites.dart';
@@ -71,7 +72,10 @@ class MyApp extends StatelessWidget {
             ),
             GoRoute(path: '/formcomp',
              builder: (context, state) => const FormComp(),
-            )
+            ),
+            GoRoute(path: '/formreset',
+             builder: (context, state) => const FormulaireReset(),
+            ),
           ],
         ),
       ],

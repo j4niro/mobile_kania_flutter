@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mobile_kania_flutter/components/botton_navbar.dart';
 import 'package:mobile_kania_flutter/components/custom_app_bar.dart';
 
@@ -39,7 +40,14 @@ class _FormulaireModifState extends State<FormulaireModif> {
                 Text('Modifier votre mot de passe ?', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                 SizedBox(height: 40,),
                 TextField(
+                  cursorColor: Color(0XFFff7900),
                     decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0xFFFF7900), // Couleur orange
+                                      width: 1.0,
+                                    ),
+                                  ),
                       fillColor: Colors.grey[200],
                       filled: true,
                       contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
@@ -53,7 +61,7 @@ class _FormulaireModifState extends State<FormulaireModif> {
                   ),
                   SizedBox(height: 20,),
                   TextButton(onPressed:(){
-                    //context.go('/home');
+                    context.go('/formreset');
                   }, 
                   child: Container(
                     //width: width * 0.99,

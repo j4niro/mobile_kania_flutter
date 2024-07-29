@@ -95,10 +95,17 @@ class _LoginState extends State<Login> {
                 child: Column(
                   children: [
                     TextField(
+                      cursorColor: const Color(0XFFff7900),
                       controller: _emailController,
                       decoration: InputDecoration(
                         fillColor: Colors.grey[200],
                         filled: true,
+                        focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0xFFFF7900), // Couleur orange
+                                  width: 1.0,
+                                ),
+                              ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: const BorderSide(color: Color(0XFFff7900)),
@@ -108,12 +115,19 @@ class _LoginState extends State<Login> {
                     ),
                     const SizedBox(height: 30),
                     TextField(
+                      cursorColor: const Color(0XFFff7900),
                       controller: _passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
                         fillColor: Colors.grey[200],
                         filled: true,
                         hintText: 'Mot de passe ...',
+                        focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0xFFFF7900), // Couleur orange
+                                  width: 1.0,
+                                ),
+                              ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: const BorderSide(color: Color(0XFFff7900)),
