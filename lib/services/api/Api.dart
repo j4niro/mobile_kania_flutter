@@ -46,16 +46,12 @@ class API {
     );
   }
 
-  static Future<http.Response> getUserComparaisonByID(String email, String id) {
-    return http.post(
-      Uri.parse("$baseUrl/data/getUserComparaisons"),
+  static Future<http.Response> getUserComparaisonByID(String id) {
+    return http.get(
+      Uri.parse("$baseUrl/data/comparaison/$id"),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      body: jsonEncode(<String, String>{
-        "user": email,
-        "id": id
-      }),
     );
   }  
 

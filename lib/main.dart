@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GoRouter _router = GoRouter(
-      initialLocation: '/formcomp',
+      initialLocation: '/accueil',
       routes: [
         GoRoute(
           path: '/login',
@@ -64,6 +64,10 @@ class MyApp extends StatelessWidget {
             ),
             GoRoute(path:'/rapport_comparaison',
               builder: (context, state) => const RapportComparaison(),
+            ),
+
+            GoRoute(path:'/rapport_consommation',
+              builder: (context, state) => const Placeholder(),
             ),
             GoRoute(path: '/formcomp',
              builder: (context, state) => const FormComp(),
